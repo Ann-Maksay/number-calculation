@@ -28,7 +28,7 @@ To run the application and calculate statistics from your data file:
 npx ts-node src/index.ts
 ```
 
-If you want to run the script with another file, replace data.txt in src/data/ with your file (but keep the data.txt name).
+If you want to run the script with another file, replace 10m.txt in src/data/ with your file (but keep the 10m.txt name).
 
 ## Example result
 
