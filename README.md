@@ -32,4 +32,4 @@ If you want to run the script with another file, replace data.txt in src/data/ w
 
 ## Example result
 
-![Execution result](./public/result.png)
+![Execution result](./public/resultv2.png)

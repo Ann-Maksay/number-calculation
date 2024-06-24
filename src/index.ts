@@ -3,6 +3,13 @@ import path from "path";
 import readline from "readline";
 import { performance } from "perf_hooks";
 
+import {
+  calculateMedian,
+  findLongestDecreasingSequence,
+  findLongestIncreasingSequence,
+  formatSequence,
+} from "./helpers/helpers";
+
 const startTime = performance.now();
 const filePath = path.join(__dirname, "data", "10m.txt");
 const fileStream = fs.createReadStream(filePath);
@@ -36,6 +43,8 @@ rl.on("line", (line) => {
 
 rl.on("close", () => {
   const mean = sum / count;
+  const longestIncreasingSequence = findLongestIncreasingSequence(numbers);
+  const longestDecreasingSequence = findLongestDecreasingSequence(numbers);
   numbers.sort((a, b) => a - b);
   const median = calculateMedian(numbers);
 
@@ -43,6 +52,14 @@ rl.on("close", () => {
   console.log("The smallest number is:", smallestNumber);
   console.log("The arithmetic mean is:", mean);
   console.log("The median is:", median);
+  console.log(
+    "Longest increasing sequence:",
+    formatSequence(longestIncreasingSequence)
+  );
+  console.log(
+    "Longest decreasing sequence:",
+    formatSequence(longestDecreasingSequence)
+  );
 
   const endTime = performance.now();
   const executionTimeMs = endTime - startTime;
@@ -54,13 +71,3 @@ rl.on("close", () => {
 rl.on("error", (err) => {
   console.error("Error reading the file:", err);
 });
-
-function calculateMedian(arr: number[]): number {
-  const middle = Math.floor(arr.length / 2);
-
-  if (arr.length % 2 === 0) {
-    return (arr[middle - 1] + arr[middle]) / 2;
-  } else {
-    return arr[middle];
-  }
-}
