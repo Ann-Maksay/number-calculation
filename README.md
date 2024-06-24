@@ -2,6 +2,12 @@
 
 The application calculates the largest number, smallest number, arithmetic mean, median, and measures the execution time in seconds.
 
+## Prerequisites
+
+Before running this application, ensure you have the following installed:
+
+- Node.js: [Download Node.js](https://nodejs.org/) and follow the installation instructions for your operating system.
+
 ## Installation
 
 1. Clone the repository:
@@ -23,3 +29,7 @@ npx ts-node src/index.ts
 ```
 
 If you want to run the script with another file, replace data.txt in src/data/ with your file (but keep the data.txt name).
+
+## Example result
+
+![Execution result](./public/result.png)
